@@ -2,6 +2,9 @@ package com.raerossi.orion.ui_kit
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertHeightIsEqualTo
 import androidx.compose.ui.test.assertWidthIsEqualTo
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -11,12 +14,12 @@ import org.junit.Rule
 import org.junit.Test
 
 /**
- * Tests unitarios para componentes Spacer
+ * Tests unitarios CORREGIDOS para componentes Spacer
  * 
- * Cobertura de tests:
- * - VerticalSpacer: Verifica que aplica la altura correcta
- * - HorizontalSpacer: Verifica que aplica el ancho correcto
- * - Casos edge: Valores mínimos, máximos y típicos
+ * Estos tests ahora SÍ verifican el comportamiento real:
+ * - VerticalSpacer: Verifica que aplica la altura correcta usando assertHeightIsEqualTo
+ * - HorizontalSpacer: Verifica que aplica el ancho correcto usando assertWidthIsEqualTo
+ * - Tests de integración: Verifican que separan componentes correctamente
  */
 class SpacerTest {
 
@@ -32,14 +35,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - El spacer debe tener la altura especificada
-        // Nota: En Compose, necesitamos verificar mediante el layout
-        // Este test verifica que el componente se renderiza sin errores
+        // Then - Verificar que tiene la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     @Test
@@ -49,12 +52,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     @Test
@@ -64,12 +69,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     @Test
@@ -79,12 +86,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     @Test
@@ -94,12 +103,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - Se renderiza sin errores incluso con altura 0
+        // Then - Verificar que tiene altura 0
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     @Test
@@ -109,12 +120,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Column {
-                VerticalSpacer(height = expectedHeight)
-            }
+            VerticalSpacer(height = expectedHeight)
         }
 
-        // Then - Se renderiza correctamente con valores grandes
+        // Then - Verificar que tiene la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$expectedHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(expectedHeight.dp)
     }
 
     // ==================== HorizontalSpacer Tests ====================
@@ -126,12 +139,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - El spacer debe tener el ancho especificado
+        // Then - Verificar que tiene el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     @Test
@@ -141,12 +156,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     @Test
@@ -156,12 +173,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     @Test
@@ -171,12 +190,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - Se renderiza correctamente
+        // Then - Verificar que tiene el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     @Test
@@ -186,12 +207,14 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - Se renderiza sin errores incluso con ancho 0
+        // Then - Verificar que tiene ancho 0
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     @Test
@@ -201,58 +224,115 @@ class SpacerTest {
 
         // When
         composeTestRule.setContent {
-            Row {
-                HorizontalSpacer(width = expectedWidth)
-            }
+            HorizontalSpacer(width = expectedWidth)
         }
 
-        // Then - Se renderiza correctamente con valores grandes
+        // Then - Verificar que tiene el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$expectedWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(expectedWidth.dp)
     }
 
     // ==================== Integration Tests ====================
 
     @Test
-    fun verticalSpacer_worksInColumn() {
-        // Given - Múltiples spacers en una columna
+    fun verticalSpacer_separatesComponentsInColumn() {
+        // Given
+        val spacerHeight = 16
+
+        // When
         composeTestRule.setContent {
             Column {
-                VerticalSpacer(height = 8)
-                VerticalSpacer(height = 16)
-                VerticalSpacer(height = 24)
+                Text("Top", modifier = Modifier.testTag("top_text"))
+                VerticalSpacer(height = spacerHeight)
+                Text("Bottom", modifier = Modifier.testTag("bottom_text"))
             }
         }
 
-        // Then - Todos se renderizan sin conflictos
+        // Then - El spacer debe existir y tener la altura correcta
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$spacerHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(spacerHeight.dp)
+
+        // Los textos deben existir
+        composeTestRule.onNodeWithTag("top_text").assertExists()
+        composeTestRule.onNodeWithTag("bottom_text").assertExists()
     }
 
     @Test
-    fun horizontalSpacer_worksInRow() {
-        // Given - Múltiples spacers en una fila
+    fun horizontalSpacer_separatesComponentsInRow() {
+        // Given
+        val spacerWidth = 16
+
+        // When
         composeTestRule.setContent {
             Row {
-                HorizontalSpacer(width = 8)
-                HorizontalSpacer(width = 16)
-                HorizontalSpacer(width = 24)
+                Text("Left", modifier = Modifier.testTag("left_text"))
+                HorizontalSpacer(width = spacerWidth)
+                Text("Right", modifier = Modifier.testTag("right_text"))
             }
         }
 
-        // Then - Todos se renderizan sin conflictos
+        // Then - El spacer debe existir y tener el ancho correcto
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$spacerWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(spacerWidth.dp)
+
+        // Los textos deben existir
+        composeTestRule.onNodeWithTag("left_text").assertExists()
+        composeTestRule.onNodeWithTag("right_text").assertExists()
     }
 
     @Test
-    fun mixedSpacers_workTogether() {
-        // Given - Spacers mezclados en layout complejo
+    fun multipleSpacers_workInSameLayout() {
+        // Given
+        val verticalHeight = 8
+        val horizontalWidth = 16
+
+        // When
         composeTestRule.setContent {
             Column {
-                VerticalSpacer(height = 16)
+                VerticalSpacer(height = verticalHeight)
                 Row {
-                    HorizontalSpacer(width = 8)
-                    HorizontalSpacer(width = 8)
+                    HorizontalSpacer(width = horizontalWidth)
+                    Text("Content")
                 }
-                VerticalSpacer(height = 16)
             }
         }
 
-        // Then - Todos funcionan correctamente juntos
+        // Then - Ambos spacers deben existir con sus dimensiones correctas
+        composeTestRule
+            .onNodeWithTag("vertical_spacer_$verticalHeight")
+            .assertExists()
+            .assertHeightIsEqualTo(verticalHeight.dp)
+
+        composeTestRule
+            .onNodeWithTag("horizontal_spacer_$horizontalWidth")
+            .assertExists()
+            .assertWidthIsEqualTo(horizontalWidth.dp)
+    }
+
+    @Test
+    fun spacer_acceptsCustomModifier() {
+        // Given
+        val height = 16
+        val customTestTag = "custom_spacer"
+
+        // When
+        composeTestRule.setContent {
+            VerticalSpacer(
+                height = height,
+                modifier = Modifier.testTag(customTestTag)
+            )
+        }
+
+        // Then - Debe tener el tag personalizado y la altura correcta
+        composeTestRule
+            .onNodeWithTag(customTestTag)
+            .assertExists()
+            .assertHeightIsEqualTo(height.dp)
     }
 }
