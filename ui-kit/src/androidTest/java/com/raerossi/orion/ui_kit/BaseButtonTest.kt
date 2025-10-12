@@ -3,7 +3,7 @@ package com.raerossi.orion.ui_kit
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.ArrowOutward
 import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.*
@@ -112,7 +112,7 @@ class BaseButtonTest {
                 label = testLabel,
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Default.Add,
+                        imageVector = Icons.Default.Add ,
                         contentDescription = leadingIconContentDescription,
                         modifier = Modifier.size(18.dp)
                     )
@@ -139,7 +139,7 @@ class BaseButtonTest {
                 label = testLabel,
                 trailingIcon = {
                     Icon(
-                        imageVector = Icons.Default.ArrowForward,
+                        imageVector = Icons.Default.ArrowOutward,
                         contentDescription = trailingIconContentDescription,
                         modifier = Modifier.size(18.dp)
                     )
@@ -174,7 +174,7 @@ class BaseButtonTest {
                 },
                 trailingIcon = {
                     Icon(
-                        imageVector = Icons.Default.ArrowForward,
+                        imageVector = Icons.Default.ArrowOutward,
                         contentDescription = trailingIconContentDescription,
                         modifier = Modifier.size(18.dp)
                     )

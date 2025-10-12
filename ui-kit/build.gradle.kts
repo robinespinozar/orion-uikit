@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.androidx.ui) // UI Core - ESENCIAL para Compose
     implementation(libs.androidx.material3) // Material3 - Componentes UI (botones, cards, etc.)
     implementation(libs.androidx.ui.tooling.preview) // Preview - Para ver composables en Android Studio
+    implementation(libs.androidx.icons.extended)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.test.manifest)
