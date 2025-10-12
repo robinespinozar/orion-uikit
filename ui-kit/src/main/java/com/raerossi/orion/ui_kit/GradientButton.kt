@@ -13,13 +13,6 @@ import androidx.compose.ui.graphics.Shape
 /**
  * GradientButton - Componente de botón con fondo de gradiente (Brush)
  *
- * Este botón extiende la funcionalidad de BaseButton para soportar fondos con gradientes.
- * El gradiente se aplica usando un Brush y solo se muestra cuando el botón está habilitado.
- *
- * IMPORTANTE: Si se pasa un modifier personalizado, el brush podría no aplicarse correctamente
- * debido al orden en que se aplican los modifiers. El modifier personalizado se pasa primero
- * a BaseButton, y luego se intenta aplicar el background con brush.
- *
  * @param modifier Modificador para el botón. NOTA: Si contiene background, puede interferir con el brush
  * @param label Texto que se muestra en el botón
  * @param brush Gradiente que se aplica al fondo del botón

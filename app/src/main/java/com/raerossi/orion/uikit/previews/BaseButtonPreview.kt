@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.LocationOn
@@ -97,7 +98,7 @@ private fun BaseButtonPreview2() {
         ) {
             BaseButton(
                 modifier = Modifier
-                    .height(48.dp),
+                    .height(40.dp),
                 label = "Label",
                 style = MaterialTheme.typography.labelLarge,
                 enabled = true,
@@ -107,14 +108,14 @@ private fun BaseButtonPreview2() {
             HorizontalSpacer(16)
             BaseButton(
                 modifier = Modifier
-                    .height(48.dp),
+                    .height(40.dp),
                 label = "Label",
                 style = MaterialTheme.typography.labelLarge,
                 enabled = true,
                 contentPadding = BaseButtonDefaults.StartIconContentPadding,
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Rounded.ArrowBack,
+                        imageVector = Icons.Rounded.Add,
                         contentDescription = null
                     )
                 },
@@ -123,7 +124,7 @@ private fun BaseButtonPreview2() {
             HorizontalSpacer(16)
             BaseButton(
                 modifier = Modifier
-                    .height(48.dp),
+                    .height(40.dp),
                 label = "Label",
                 style = MaterialTheme.typography.labelLarge,
                 enabled = true,
