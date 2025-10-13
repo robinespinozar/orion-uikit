@@ -1,6 +1,9 @@
 package com.raerossi.orion.ui_kit
 
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
@@ -11,6 +14,8 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
+import com.raerossi.orion.ui_kit.buttons.gradient_button.GradientButton
+import com.raerossi.orion.ui_kit.buttons.gradient_button.GradientButtonDefaults
 import org.junit.Rule
 import org.junit.Test
 
@@ -43,7 +48,7 @@ class GradientButtonTest {
         composeTestRule.setContent {
             GradientButton(
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),                
                 onClick = {}
             )
         }
@@ -67,7 +72,7 @@ class GradientButtonTest {
         composeTestRule.setContent {
             GradientButton(
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = true,
                 onClick = { clicked = true }
             )
@@ -95,7 +100,7 @@ class GradientButtonTest {
         composeTestRule.setContent {
             GradientButton(
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = false,
                 onClick = { clicked = true }
             )
@@ -128,7 +133,7 @@ class GradientButtonTest {
             GradientButton(
                 modifier = Modifier.testTag(testTag),
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = true,
                 onClick = {}
             )
@@ -160,7 +165,7 @@ class GradientButtonTest {
             GradientButton(
                 modifier = Modifier.testTag(testTag),
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = false,
                 onClick = {}
             )
@@ -197,7 +202,7 @@ class GradientButtonTest {
             GradientButton(
                 modifier = customModifier,
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = true,
                 onClick = {}
             )
@@ -228,7 +233,7 @@ class GradientButtonTest {
         composeTestRule.setContent {
             GradientButton(
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Star,
@@ -259,7 +264,7 @@ class GradientButtonTest {
         composeTestRule.setContent {
             GradientButton(
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 trailingIcon = {
                     Icon(
                         imageVector = Icons.Default.Star,
@@ -291,7 +296,7 @@ class GradientButtonTest {
             GradientButton(
                 modifier = Modifier.testTag(testTag),
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = true,
                 onClick = {}
             )
@@ -322,7 +327,7 @@ class GradientButtonTest {
             GradientButton(
                 modifier = Modifier.testTag(testTag),
                 label = testLabel,
-                brush = testBrush,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
                 enabled = true,
                 onClick = {}
             )
@@ -337,5 +342,133 @@ class GradientButtonTest {
         composeTestRule
             .onNodeWithText(testLabel)
             .assertIsDisplayed()
+    }
+
+    @Test
+    fun gradientButton_respectsUserModifierHeight() {
+        // Given
+        val testLabel = "Custom Height Button"
+        val testBrush = Brush.linearGradient(
+            colors = listOf(Color.Blue, Color.Cyan)
+        )
+        val customHeight = 40.dp  // Height personalizado
+        val testTag = "gradient_button_custom_height"
+
+        // When
+        composeTestRule.setContent {
+            GradientButton(
+                modifier = Modifier
+                    .height(customHeight)
+                    .fillMaxWidth()
+                    .testTag(testTag),
+                label = testLabel,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
+                enabled = true,
+                onClick = {}
+            )
+        }
+
+        // Then - El botón debe tener el height especificado por el usuario
+        composeTestRule
+            .onNodeWithTag(testTag)
+            .assertExists()
+            .assertIsDisplayed()
+            .assertHeightIsEqualTo(customHeight)
+    }
+
+    @Test
+    fun gradientButton_respectsUserModifierWidth() {
+        // Given
+        val testLabel = "Custom Width Button"
+        val testBrush = Brush.linearGradient(
+            colors = listOf(Color.Blue, Color.Cyan)
+        )
+        val customWidth = 200.dp  // Width personalizado
+        val testTag = "gradient_button_custom_width"
+
+        // When
+        composeTestRule.setContent {
+            GradientButton(
+                modifier = Modifier
+                    .width(customWidth)
+                    .testTag(testTag),
+                label = testLabel,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
+                enabled = true,
+                onClick = {}
+            )
+        }
+
+        // Then - El botón debe tener el width especificado por el usuario
+        composeTestRule
+            .onNodeWithTag(testTag)
+            .assertExists()
+            .assertIsDisplayed()
+            .assertWidthIsEqualTo(customWidth)
+    }
+
+    @Test
+    fun gradientButton_respectsUserModifierSize() {
+        // Given
+        val testLabel = "Custom Size Button"
+        val testBrush = Brush.linearGradient(
+            colors = listOf(Color.Blue, Color.Cyan)
+        )
+        val customWidth = 250.dp
+        val customHeight = 48.dp
+        val testTag = "gradient_button_custom_size"
+
+        // When
+        composeTestRule.setContent {
+            GradientButton(
+                modifier = Modifier
+                    .size(width = customWidth, height = customHeight)
+                    .testTag(testTag),
+                label = testLabel,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
+                enabled = true,
+                onClick = {}
+            )
+        }
+
+        // Then - El botón debe respetar tanto width como height
+        composeTestRule
+            .onNodeWithTag(testTag)
+            .assertExists()
+            .assertIsDisplayed()
+            .assertWidthIsEqualTo(customWidth)
+            .assertHeightIsEqualTo(customHeight)
+    }
+
+    @Test
+    fun gradientButton_modifierAppliesCorrectlyWhenDisabled() {
+        // Given
+        val testLabel = "Disabled Custom Height"
+        val testBrush = Brush.linearGradient(
+            colors = listOf(Color.Blue, Color.Cyan)
+        )
+        val customHeight = 56.dp
+        val testTag = "gradient_button_disabled_height"
+
+        // When
+        composeTestRule.setContent {
+            GradientButton(
+                modifier = Modifier
+                    .height(customHeight)
+                    .fillMaxWidth()
+                    .testTag(testTag),
+                label = testLabel,
+                colors = GradientButtonDefaults.colors().copy(brushContainerColor = testBrush),
+                enabled = false,  // Deshabilitado
+                onClick = {}
+            )
+        }
+
+        // Then - El modifier debe aplicarse incluso cuando está deshabilitado
+        composeTestRule
+            .onNodeWithTag(testTag)
+            .assertExists()
+            .assertIsDisplayed()
+            .assertHeightIsEqualTo(customHeight)
     }
 }

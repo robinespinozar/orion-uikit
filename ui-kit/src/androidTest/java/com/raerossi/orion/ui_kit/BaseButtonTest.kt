@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
+import com.raerossi.orion.ui_kit.buttons.base_button.BaseButton
 import org.junit.Rule
 import org.junit.Test
 
@@ -112,7 +113,7 @@ class BaseButtonTest {
                 label = testLabel,
                 leadingIcon = {
                     Icon(
-                        imageVector = Icons.Default.Add ,
+                        imageVector = Icons.Default.Add,
                         contentDescription = leadingIconContentDescription,
                         modifier = Modifier.size(18.dp)
                     )

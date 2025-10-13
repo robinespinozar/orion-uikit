@@ -1,10 +1,9 @@
-package com.raerossi.orion.ui_kit
+package com.raerossi.orion.ui_kit.buttons.base_button
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ButtonElevation
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
@@ -30,7 +29,7 @@ object BaseButtonDefaults {
     val iconSpacing: Dp
         @Composable get() = ButtonDefaults.IconSpacing
 
-    /** The default content padding used by [BaseButton] that no contains an [Icon]. */
+    /** The default content padding used by [BaseButton] that no contains an [androidx.compose.material3.Icon]. */
     val ContentPadding = PaddingValues(
         start = ButtonLeadingSpace,
         top = ButtonVerticalPadding,
@@ -38,7 +37,7 @@ object BaseButtonDefaults {
         bottom = ButtonVerticalPadding,
     )
 
-    /** The default content padding used by [BaseButton] that contains an Start/Lead [Icon]. */
+    /** The default content padding used by [BaseButton] that contains an Start/Lead [androidx.compose.material3.Icon]. */
     val StartIconContentPadding = PaddingValues(
         start = ButtonWithIconStartPadding,
         top = ButtonVerticalPadding,
@@ -46,7 +45,7 @@ object BaseButtonDefaults {
         bottom = ButtonVerticalPadding,
     )
 
-    /** The default content padding used by [BaseButton] that contains an End/Trail [Icon]. */
+    /** The default content padding used by [BaseButton] that contains an End/Trail [androidx.compose.material3.Icon]. */
     val EndIconContentPadding = PaddingValues(
         start = ButtonLeadingSpace,
         top = ButtonVerticalPadding,
