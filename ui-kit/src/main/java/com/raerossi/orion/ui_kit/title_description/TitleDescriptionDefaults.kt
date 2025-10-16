@@ -11,44 +11,22 @@ import androidx.compose.ui.unit.dp
 /**
  * Contains the default values used by [TitleDescription].
  *
- * This object follows Material Design 3 conventions:
- * - Provides sensible defaults based on MaterialTheme
- * - Uses @ReadOnlyComposable for optimization
- * - Offers predefined style variants for common use cases
- * - Allows customization through the colors() function
  */
 object TitleDescriptionDefaults {
-    
-    /**
-     * The default spacing between title and description.
-     * 8.dp follows MD3 spacing guidelines for compact text groups.
-     */
-    val Spacing: Dp = 8.dp
-    
-    /**
-     * The default text style for the title.
-     * Uses MaterialTheme.typography.headlineSmall by default.
-     */
-    val titleStyle: TextStyle
+
+    val spacing: Dp = 8.dp
+    val compactSpacing: Dp = 4.dp
+
+    val balancedTitleStyle: TextStyle
         @Composable
         @ReadOnlyComposable
-        get() = MaterialTheme.typography.headlineSmall
-    
-    /**
-     * The default text style for the description.
-     * Uses MaterialTheme.typography.bodyMedium by default.
-     */
-    val descriptionStyle: TextStyle
+        get() = MaterialTheme.typography.headlineMedium
+
+    val balancedDescriptionStyle: TextStyle
         @Composable
         @ReadOnlyComposable
         get() = MaterialTheme.typography.bodyMedium
-    
-    /**
-     * Creates a [TitleDescriptionColors] with the provided colors or defaults from the theme.
-     *
-     * @param titleColor the color for the title text. Defaults to MaterialTheme.colorScheme.onSurface
-     * @param descriptionColor the color for the description text. Defaults to MaterialTheme.colorScheme.onSurfaceVariant
-     */
+
     @Composable
     fun colors(
         titleColor: Color = MaterialTheme.colorScheme.onSurface,
@@ -57,22 +35,24 @@ object TitleDescriptionDefaults {
         titleColor = titleColor,
         descriptionColor = descriptionColor
     )
-    
-    /**
-     * Emphasized title style variant.
-     * Uses MaterialTheme.typography.displaySmall for larger emphasis.
-     */
+
     val emphasizedTitleStyle: TextStyle
         @Composable
         @ReadOnlyComposable
-        get() = MaterialTheme.typography.displaySmall
-    
-    /**
-     * Large title style variant.
-     * Uses MaterialTheme.typography.headlineLarge for prominent titles.
-     */
-    val largeTitleStyle: TextStyle
+        get() = MaterialTheme.typography.headlineLarge
+
+    val emphasizedDescriptionStyle: TextStyle
         @Composable
         @ReadOnlyComposable
-        get() = MaterialTheme.typography.headlineLarge
+        get() = MaterialTheme.typography.bodySmall
+
+    val compactTitleStyle: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = MaterialTheme.typography.headlineSmall
+
+    val compactDescriptionStyle: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = MaterialTheme.typography.bodySmall
 }

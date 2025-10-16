@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
+import com.raerossi.orion.ui_kit.tile.Tile
 import org.junit.Rule
 import org.junit.Test
 
@@ -39,7 +40,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -61,7 +62,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -89,7 +90,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -114,7 +115,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -142,7 +143,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -167,7 +168,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -203,7 +204,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -231,7 +232,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then
@@ -269,7 +270,7 @@ class TileTest {
                 content = {
                     Text(testContent)
                 }
-            )
+            ) {}
         }
 
         // Then

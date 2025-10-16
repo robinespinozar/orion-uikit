@@ -448,7 +448,7 @@ class TitleDescriptionTest {
         // When
         composeTestRule.setContent {
             MaterialTheme {
-                val defaultSpacing = TitleDescriptionDefaults.Spacing
+                val defaultSpacing = TitleDescriptionDefaults.spacing
                 
                 // Then - Default spacing should be 8.dp (as per MD3 conventions)
                 assert(defaultSpacing == 8.dp) { 
@@ -481,7 +481,7 @@ class TitleDescriptionTest {
         // When
         composeTestRule.setContent {
             MaterialTheme {
-                val defaultTitleStyle = TitleDescriptionDefaults.titleStyle
+                val defaultTitleStyle = TitleDescriptionDefaults.balancedTitleStyle
                 
                 // Then - Should provide a valid TextStyle
                 assert(defaultTitleStyle != TextStyle.Default) { 
@@ -496,7 +496,7 @@ class TitleDescriptionTest {
         // When
         composeTestRule.setContent {
             MaterialTheme {
-                val defaultDescriptionStyle = TitleDescriptionDefaults.descriptionStyle
+                val defaultDescriptionStyle = TitleDescriptionDefaults.balancedDescriptionStyle
                 
                 // Then - Should provide a valid TextStyle
                 assert(defaultDescriptionStyle != TextStyle.Default) { 

@@ -1,6 +1,15 @@
 package com.raerossi.orion.ui_kit
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Brush
+import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
@@ -231,16 +240,16 @@ class OutlinedBaseButtonTest {
             OutlinedBaseButton(
                 label = testLabel,
                 leadingIcon = {
-                    androidx.compose.material3.Icon(
+                    Icon(
                         modifier = Modifier.testTag(leadingIconTag),
-                        imageVector = androidx.compose.material.icons.Icons.Default.Add,
+                        imageVector = Icons.Filled.Add,
                         contentDescription = null
                     )
                 },
                 trailingIcon = {
-                    androidx.compose.material3.Icon(
+                    Icon(
                         modifier = Modifier.testTag(trailingIconTag),
-                        imageVector = androidx.compose.material.icons.Icons.Default.ArrowForward,
+                        imageVector = Icons.Default.Brush,
                         contentDescription = null
                     )
                 },
