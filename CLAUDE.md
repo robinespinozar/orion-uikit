@@ -13,6 +13,17 @@ Orion UI Kit is an Android library that provides custom UI components for **Jetp
 ```
 orion-uikit/
 ├── app/              # Demo application showcasing the UI components
+│   └── src/main/java/com/raerossi/orion/uikit/
+│       └── previews/                   # Preview composables (mirrors ui-kit structure)
+│           ├── buttons/
+│           │   ├── base_button/        # BaseButtonPreview.kt
+│           │   ├── gradient_button/    # GradientButtonPreview.kt
+│           │   ├── outlined_base_button/ # OutlinedBaseButtonPreview.kt
+│           │   └── text_base_button/   # TextBaseButtonPreview.kt
+│           ├── tiles/                  # TilePreview.kt
+│           ├── info_displays/
+│           │   └── title_description/  # TitleDescriptionPreview.kt
+│           └── spacers/                # (if needed)
 └── ui-kit/           # Core library module (THIS IS WHERE YOU MAKE CHANGES)
     └── src/
         ├── main/java/com/raerossi/orion/ui_kit/
@@ -21,11 +32,24 @@ orion-uikit/
         │   │   ├── gradient_button/    # Button with gradient backgrounds
         │   │   ├── outlined_base_button/ # Outlined variant
         │   │   └── text_base_button/   # Text-only variant
-        │   ├── tile/                   # Clickable Tile component with icons
-        │   ├── title_description/      # Title+Description layout component
-        │   └── Spacer.kt              # Utility spacer components
-        └── androidTest/               # UI tests (Compose testing)
+        │   ├── tiles/                  # Clickable Tile component with icons
+        │   ├── info_displays/
+        │   │   ├── title_description/  # Title+Description layout component
+        │   │   └── icon_with_text/     # Icon with text component
+        │   └── spacers/                # Spacer.kt - Utility spacer components
+        └── androidTest/java/com/raerossi/orion/ui_kit/  # UI tests (mirrors main structure)
+            ├── buttons/
+            │   ├── base_button/        # BaseButtonTest.kt
+            │   ├── gradient_button/    # GradientButtonTest.kt
+            │   ├── outlined_base_button/ # OutlinedBaseButtonTest.kt
+            │   └── text_base_button/   # TextBaseButtonTest.kt
+            ├── tiles/                  # TileTest.kt
+            ├── info_displays/
+            │   └── title_description/  # TitleDescriptionTest.kt
+            └── spacers/                # SpacerTest.kt
 ```
+
+**Important:** Tests and Previews MUST mirror the exact folder structure of components in `ui-kit/src/main/`.
 
 ## Component Architecture
 
@@ -96,9 +120,18 @@ When asked to create a component, follow this exact workflow:
 - Identify Material Design 3 patterns that apply
 - Determine component signature (parameters, return type)
 
-**Step 2: Generate Comprehensive Tests**
+**Step 2: Determine File Locations**
 
-Create a test file in `ui-kit/src/androidTest/java/com/raerossi/orion/ui_kit/` with:
+Based on the component category, determine the correct folder structure:
+- **Buttons**: `buttons/{component_name}/`
+- **Tiles**: `tiles/`
+- **Info Displays**: `info_displays/{component_name}/`
+- **Spacers**: `spacers/`
+- **Other categories**: Create appropriate category folder
+
+**Step 3: Generate Comprehensive Tests**
+
+Create a test file in the mirrored structure under `ui-kit/src/androidTest/java/com/raerossi/orion/ui_kit/{category}/{component_name}/` with:
 
 ```kotlin
 /**
@@ -139,25 +172,45 @@ class ComponentNameTest {
 - Test both positive cases and edge cases
 - Include integration tests with all parameters combined
 
-**Step 3: Create Minimal Component Structure**
+**Step 4: Create Minimal Component Structure**
 
-Create files:
+Create files in the appropriate folder under `ui-kit/src/main/java/com/raerossi/orion/ui_kit/{category}/{component_name}/`:
 1. `ComponentName.kt` - Main composable with TODO comments
 2. `ComponentNameDefaults.kt` - Empty defaults object
 3. `ComponentNameColors.kt` (if needed) - Empty colors data class
 
-**Step 4: Stop and Let User Implement**
+**Step 5: Create Preview Structure (Optional but Recommended)**
+
+Create preview file in the mirrored structure under `app/src/main/java/com/raerossi/orion/uikit/previews/{category}/{component_name}/`:
+1. `ComponentNamePreview.kt` - Preview composable with basic usage examples
+
+**Step 6: Stop and Let User Implement**
 - Present the generated tests to the user
 - Provide brief explanation of test coverage
 - User will implement the component to pass the tests
 
+**Example Structure for a New Component "CustomCard" in "cards" category:**
+```
+ui-kit/src/main/java/com/raerossi/orion/ui_kit/cards/custom_card/
+├── CustomCard.kt
+├── CustomCardDefaults.kt
+└── CustomCardColors.kt
+
+ui-kit/src/androidTest/java/com/raerossi/orion/ui_kit/cards/custom_card/
+└── CustomCardTest.kt
+
+app/src/main/java/com/raerossi/orion/uikit/previews/cards/custom_card/
+└── CustomCardPreview.kt
+```
+
 ### Adding a New Component (Non-TDD Flow)
-1. Create component file in appropriate package under `ui-kit/src/main/java/com/raerossi/orion/ui_kit/`
-2. Create corresponding `*Defaults` object for default values
-3. Add `@Preview` composables for visual validation
-4. Create test file in `ui-kit/src/androidTest/java/com/raerossi/orion/ui_kit/`
-5. Use `testTag()` modifiers for testable elements
-6. Follow existing naming conventions (e.g., `leadingIcon`, `trailingIcon`, `contentPadding`)
+1. Determine the component category (buttons, tiles, info_displays, etc.)
+2. Create component files in appropriate folder under `ui-kit/src/main/java/com/raerossi/orion/ui_kit/{category}/{component_name}/`
+3. Create corresponding `*Defaults` object for default values
+4. Create test file in mirrored structure under `ui-kit/src/androidTest/java/com/raerossi/orion/ui_kit/{category}/{component_name}/`
+5. Create preview file in mirrored structure under `app/src/main/java/com/raerossi/orion/uikit/previews/{category}/{component_name}/`
+6. Use `testTag()` modifiers for testable elements
+7. Follow existing naming conventions (e.g., `leadingIcon`, `trailingIcon`, `contentPadding`)
 
 ### Testing Conventions
 - UI tests use **Compose Testing** with `createComposeRule()`
