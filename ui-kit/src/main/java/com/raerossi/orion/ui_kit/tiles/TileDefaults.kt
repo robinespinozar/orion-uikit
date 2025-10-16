@@ -1,8 +1,6 @@
-package com.raerossi.orion.ui_kit.tile
+package com.raerossi.orion.ui_kit.tiles
 
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 

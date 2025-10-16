@@ -3,12 +3,9 @@ package com.raerossi.orion.uikit.previews
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material.icons.rounded.ArrowForward
 import androidx.compose.material.icons.rounded.Brush
 import androidx.compose.material.icons.rounded.GppGood
 import androidx.compose.material3.Icon
@@ -18,10 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.raerossi.orion.ui_kit.HorizontalSpacer
-import com.raerossi.orion.ui_kit.VerticalSpacer
-import com.raerossi.orion.ui_kit.buttons.outlined_base_button.OutlinedBaseButton
-import com.raerossi.orion.ui_kit.buttons.outlined_base_button.OutlinedBaseButtonDefaults
+import com.raerossi.orion.ui_kit.spacers.HorizontalSpacer
 import com.raerossi.orion.ui_kit.buttons.text_base_button.TextBaseButton
 import com.raerossi.orion.ui_kit.buttons.text_base_button.TextBaseButtonDefaults
 import com.raerossi.orion.uikit.ui.theme.OrionUiKitTheme

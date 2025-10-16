@@ -1,4 +1,4 @@
-package com.raerossi.orion.ui_kit.title_description
+package com.raerossi.orion.ui_kit.info_displays.title_description
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.raerossi.orion.ui_kit.VerticalSpacer
+import com.raerossi.orion.ui_kit.spacers.VerticalSpacer
 
 /**
  * TitleDescription component - A Material Design 3 aligned component that displays a title and description.

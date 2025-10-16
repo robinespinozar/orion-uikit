@@ -8,14 +8,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import com.raerossi.orion.ui_kit.VerticalSpacer
-import com.raerossi.orion.ui_kit.title_description.TitleDescription
-import com.raerossi.orion.ui_kit.title_description.TitleDescriptionDefaults
+import com.raerossi.orion.ui_kit.spacers.VerticalSpacer
+import com.raerossi.orion.ui_kit.info_displays.title_description.TitleDescription
+import com.raerossi.orion.ui_kit.info_displays.title_description.TitleDescriptionDefaults
 import com.raerossi.orion.uikit.ui.theme.OrionUiKitTheme
 
 @PreviewLightDark

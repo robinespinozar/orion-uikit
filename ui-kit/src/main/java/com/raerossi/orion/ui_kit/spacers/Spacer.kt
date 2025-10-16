@@ -1,4 +1,4 @@
-package com.raerossi.orion.ui_kit
+package com.raerossi.orion.ui_kit.spacers
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height

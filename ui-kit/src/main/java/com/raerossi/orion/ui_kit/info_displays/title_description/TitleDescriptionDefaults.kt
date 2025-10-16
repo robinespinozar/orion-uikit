@@ -1,4 +1,4 @@
-package com.raerossi.orion.ui_kit.title_description
+package com.raerossi.orion.ui_kit.info_displays.title_description
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable

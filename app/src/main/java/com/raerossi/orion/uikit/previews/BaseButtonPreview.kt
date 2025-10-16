@@ -19,8 +19,8 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.raerossi.orion.ui_kit.buttons.base_button.BaseButton
 import com.raerossi.orion.ui_kit.buttons.base_button.BaseButtonDefaults
-import com.raerossi.orion.ui_kit.HorizontalSpacer
-import com.raerossi.orion.ui_kit.VerticalSpacer
+import com.raerossi.orion.ui_kit.spacers.HorizontalSpacer
+import com.raerossi.orion.ui_kit.spacers.VerticalSpacer
 import com.raerossi.orion.uikit.ui.theme.OrionUiKitTheme
 
 @PreviewLightDark

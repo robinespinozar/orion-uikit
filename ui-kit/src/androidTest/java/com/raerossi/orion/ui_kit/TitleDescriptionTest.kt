@@ -10,9 +10,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.raerossi.orion.ui_kit.title_description.TitleDescription
-import com.raerossi.orion.ui_kit.title_description.TitleDescriptionColors
-import com.raerossi.orion.ui_kit.title_description.TitleDescriptionDefaults
+import com.raerossi.orion.ui_kit.info_displays.title_description.TitleDescription
+import com.raerossi.orion.ui_kit.info_displays.title_description.TitleDescriptionColors
+import com.raerossi.orion.ui_kit.info_displays.title_description.TitleDescriptionDefaults
 import org.junit.Rule
 import org.junit.Test
 
