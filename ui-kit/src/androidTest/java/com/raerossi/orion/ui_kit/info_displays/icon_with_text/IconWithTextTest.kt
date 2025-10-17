@@ -1,5 +1,8 @@
 package com.raerossi.orion.ui_kit.info_displays.icon_with_text
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
@@ -156,7 +159,7 @@ class IconWithTextTest {
                         )
                     },
                     text = {
-                        androidx.compose.foundation.layout.Column(
+                        Column(
                             modifier = Modifier.testTag(testTag)
                         ) {
                             Text("Line 1")
@@ -351,7 +354,7 @@ class IconWithTextTest {
             MaterialTheme {
                 IconWithText(
                     icon = {
-                        androidx.compose.foundation.layout.Box(
+                        Box(
                             modifier = Modifier
                                 .size(24.dp)
                                 .testTag(customIconTag)
@@ -378,7 +381,7 @@ class IconWithTextTest {
             MaterialTheme {
                 IconWithText(
                     icon = {
-                        androidx.compose.foundation.layout.Row {
+                        Row {
                             Icon(
                                 imageVector = Icons.Default.Star,
                                 contentDescription = null,
@@ -509,7 +512,7 @@ class IconWithTextTest {
         // When: Multiple IconWithText components are rendered
         composeTestRule.setContent {
             MaterialTheme {
-                androidx.compose.foundation.layout.Column {
+                Column {
                     IconWithText(
                         icon = {
                             Icon(
