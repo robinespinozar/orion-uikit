@@ -245,7 +245,10 @@ fun OrionUiKitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
+    //val colorScheme = if (darkTheme) darkScheme else lightScheme
     val colorScheme = if (darkTheme) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
+    //val colorScheme = if (darkTheme) highContrastDarkColorScheme else highContrastLightColorScheme
+
 
     MaterialTheme(
         colorScheme = colorScheme,

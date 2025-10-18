@@ -81,9 +81,9 @@ import com.raerossi.orion.ui_kit.spacers.HorizontalSpacer
  */
 @Composable
 fun StatCard(
+    modifier: Modifier = Modifier,
     value: String,
     label: String,
-    modifier: Modifier = Modifier,
     icon: (@Composable () -> Unit)? = null,
     trendValue: String? = null,
     trendDirection: TrendDirection? = null,
